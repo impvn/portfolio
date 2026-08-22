@@ -1091,6 +1091,13 @@
         padding: 28px;
       }
 
+      .education-layout {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+      }
+
       .education-identity {
         display: grid;
         grid-template-columns: 106px minmax(0, 1fr);
@@ -1119,33 +1126,22 @@
         letter-spacing: -0.02em;
         line-height: 1.15;
         color: var(--ink);
-        margin-bottom: 16px;
+        margin-bottom: 9px;
       }
 
-      .cred-list {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .cred-list li {
+      .education-degree {
         font-size: 15px;
-        line-height: 1.6;
+        font-weight: 600;
+        line-height: 1.45;
         color: var(--ink);
-        padding-left: 16px;
-        position: relative;
       }
 
-      .cred-list li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 9px;
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background: var(--brass);
+      .education-field {
+        margin-top: 4px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.035em;
+        color: var(--brass);
       }
 
       .contact-card {
@@ -1543,6 +1539,12 @@
 
         .education-identity {
           grid-template-columns: 82px minmax(0, 1fr);
+          gap: 16px;
+        }
+
+        .education-layout {
+          align-items: stretch;
+          flex-direction: column;
           gap: 16px;
         }
 
@@ -2191,28 +2193,34 @@
         </div>
         <div class="credentials-grid">
           <div class="credentials-card rv">
-            <div class="education-identity">
-              <img
-                class="education-logo"
-                src="assets/brands/dtu.png"
-                alt="Delhi Technological University logo"
-                width="106"
-                height="106"
-                loading="lazy"
-              />
-              <div class="education-content">
-                <h3>
-                  Delhi Technological University
-                  <span class="experience-date">(formerly DCE)</span>
-                </h3>
-                <ul class="cred-list">
-                  <li>
-                    <strong
-                      >Bachelor of Technology (B.Tech), Civil Engineering</strong
-                    >
-                  </li>
-                  <li>New Delhi, India &middot; 2019&ndash;2023</li>
-                </ul>
+            <div class="education-layout">
+              <div class="education-identity">
+                <img
+                  class="education-logo"
+                  src="assets/brands/dtu.png"
+                  alt="Delhi Technological University logo"
+                  width="106"
+                  height="106"
+                  loading="lazy"
+                />
+                <div class="education-content">
+                  <h3>
+                    Delhi Technological University
+                    <span class="experience-date">(formerly DCE)</span>
+                  </h3>
+                  <div class="education-degree">Bachelor of Technology (B.Tech)</div>
+                  <div class="education-field">Civil Engineering</div>
+                </div>
+              </div>
+              <div class="experience-facts" aria-label="Education details">
+                <span class="experience-fact">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  New Delhi, India
+                </span>
+                <span class="experience-fact">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+                  2019&ndash;2023
+                </span>
               </div>
             </div>
           </div>
