@@ -122,10 +122,6 @@
           transform: none !important;
         }
 
-        .hero-status::before {
-          animation-duration: 1s !important;
-          animation-iteration-count: infinite !important;
-        }
       }
 
       .scroll-progress {
@@ -350,29 +346,17 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: var(--pine);
+        background: #35c759;
         display: inline-block;
-        box-shadow: 0 0 0 0 color-mix(in srgb, var(--pine) 45%, transparent);
-        animation: status-blink 1s steps(1, end) infinite;
-        will-change: opacity, transform, box-shadow;
+        opacity: 1;
+        box-shadow: 0 0 8px rgba(53, 199, 89, 0.75);
+        transform: scale(1);
       }
 
-      @keyframes status-blink {
-        0%,
-        49% {
-          opacity: 1;
-          transform: scale(1);
-          box-shadow: 0 0 0 0 color-mix(in srgb, var(--pine) 35%, transparent);
-        }
-        50%,
-        99% {
-          opacity: 0.08;
-          transform: scale(0.82);
-          box-shadow: none;
-        }
-        100% {
-          opacity: 1;
-        }
+      .hero-status.is-dim::before {
+        opacity: 0.08;
+        box-shadow: none;
+        transform: scale(0.7);
       }
 
       .hero h1 {
@@ -1754,7 +1738,7 @@
                   <path fill="#FBBC04" d="m2 4 5 3.75V5.2L2 1.5V4Z" />
                   <path fill="#EA4335" d="M2 1.5 4.2 0 12 5.85 19.8 0 22 1.5 12 9 2 1.5Z" />
                 </svg>
-                Mail</a
+                Gmail</a
               >
               <a
                 href="Pawan_Gupta_Resume.pdf"
@@ -2322,6 +2306,13 @@
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        var heroStatus = document.querySelector(".hero-status");
+        if (heroStatus) {
+          window.setInterval(function () {
+            heroStatus.classList.toggle("is-dim");
+          }, 500);
+        }
+
         // GSAP animations
         function initGSAP() {
           if (typeof gsap === "undefined") return;
