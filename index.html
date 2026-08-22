@@ -1899,7 +1899,7 @@
 
       .architecture {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 10px;
       }
 
@@ -2102,6 +2102,7 @@
         .case-result strong { font-size: 30px; }
         .featured-product { padding: 22px 18px; }
         .architecture { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .architecture-step:last-child { grid-column: 1 / -1; }
         .secondary-projects { grid-template-columns: 1fr; }
         .product-points { grid-template-columns: 1fr; }
         .experience-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 14px; }
@@ -2459,11 +2460,12 @@
               <li>Fit scoring</li>
               <li>Lead review and status tracking</li>
               <li>History and exports</li>
+              <li>Personalised email outreach</li>
             </ul>
             <a class="project-link" href="mailto:pawangupta.bu@gmail.com?subject=Lead%20Mover%20demo%20request">Private build &middot; request demo &nearr;</a>
           </div>
           <div class="architecture" aria-label="Lead Mover system workflow">
-            <div class="architecture-label">System flow &middot; follow 01&ndash;08</div>
+            <div class="architecture-label">System flow &middot; follow 01&ndash;09</div>
             <div class="architecture-step" data-step="01">LinkedIn posts</div>
             <div class="architecture-step" data-step="02">Signal classifier</div>
             <div class="architecture-step" data-step="03">LLM extraction</div>
@@ -2471,7 +2473,8 @@
             <div class="architecture-step" data-step="05">Fit scoring</div>
             <div class="architecture-step" data-step="06">Lead builder</div>
             <div class="architecture-step" data-step="07">Review workspace</div>
-            <div class="architecture-step" data-step="08">Export / outreach</div>
+            <div class="architecture-step" data-step="08">Lead export</div>
+            <div class="architecture-step" data-step="09">Personalised email</div>
           </div>
         </article>
         <div class="secondary-projects">
