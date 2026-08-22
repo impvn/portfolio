@@ -380,6 +380,20 @@
         transform: scale(0.7);
       }
 
+      .page-availability {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 900;
+        margin: 0;
+        padding: 8px 11px;
+        font-size: 10px;
+        white-space: nowrap;
+        box-shadow: 0 8px 24px rgba(17, 24, 20, 0.14);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
       .hero h1 {
         font-family: var(--display);
         font-size: clamp(36px, 6vw, 64px);
@@ -2140,6 +2154,7 @@
         .hero h1 { margin-bottom: 16px; }
         .hero-sub { margin-bottom: 24px; }
         .hero-proof-note { margin-top: 14px; padding: 13px 14px; line-height: 1.55; }
+        .page-availability { right: 12px; bottom: 12px; padding: 7px 9px; font-size: 9px; }
         .profile-card,
         .profile-card img { width: 148px; height: 148px; }
         .hero-ledger { margin-top: 36px; }
@@ -2288,13 +2303,13 @@
         &#9776;
       </button>
     </nav>
+    <div class="hero-status page-availability" role="status">
+      Open to full-time opportunities
+    </div>
     <main id="main">
       <section class="hero container" id="hero">
         <div class="hero-layout">
           <div class="hero-copy">
-            <div class="hero-status rv">
-              Open to full-time opportunities
-            </div>
             <h1 class="rv">
               Analytics that turns into
               <span class="hero-accent">business decisions.</span>
