@@ -348,21 +348,25 @@
         background: var(--pine);
         display: inline-block;
         box-shadow: 0 0 0 0 color-mix(in srgb, var(--pine) 45%, transparent);
-        animation: status-pulse 1.15s ease-in-out infinite;
+        animation: status-blink 1s steps(1, end) infinite;
         will-change: opacity, transform, box-shadow;
       }
 
-      @keyframes status-pulse {
+      @keyframes status-blink {
         0%,
-        100% {
+        49% {
           opacity: 1;
           transform: scale(1);
           box-shadow: 0 0 0 0 color-mix(in srgb, var(--pine) 35%, transparent);
         }
-        50% {
-          opacity: 0.12;
-          transform: scale(0.72);
-          box-shadow: 0 0 0 6px transparent;
+        50%,
+        99% {
+          opacity: 0.08;
+          transform: scale(0.82);
+          box-shadow: none;
+        }
+        100% {
+          opacity: 1;
         }
       }
 
