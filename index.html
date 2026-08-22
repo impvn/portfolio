@@ -2421,7 +2421,8 @@
         </div>
         <iframe
           class="resume-frame"
-          src="Pawan_Gupta_Resume.pdf#view=FitH"
+          id="resumeFrame"
+          src="Pawan_Gupta_Resume.pdf#page=1&amp;zoom=55"
           title="Pawan Gupta resume preview"
           loading="lazy"
         ></iframe>
@@ -2442,9 +2443,24 @@
         var viewResumeBtn = document.getElementById("viewResumeBtn");
         var resumeModal = document.getElementById("resumeModal");
         var resumeModalClose = document.getElementById("resumeModalClose");
+        var resumeFrame = document.getElementById("resumeFrame");
+
+        function getResumePreviewSrc() {
+          return window.innerWidth <= 640
+            ? "Pawan_Gupta_Resume.pdf#page=1&view=Fit"
+            : "Pawan_Gupta_Resume.pdf#page=1&zoom=55";
+        }
+
+        function syncResumePreview() {
+          var previewSrc = getResumePreviewSrc();
+          if (resumeFrame.getAttribute("src") !== previewSrc) {
+            resumeFrame.setAttribute("src", previewSrc);
+          }
+        }
 
         function openResumeModal(event) {
           if (event) event.preventDefault();
+          syncResumePreview();
           resumeModal.hidden = false;
           document.body.classList.add("modal-open");
           resumeModalClose.focus();
@@ -2466,6 +2482,9 @@
           if (event.key === "Escape" && !resumeModal.hidden) {
             closeResumeModal();
           }
+        });
+        window.addEventListener("resize", function () {
+          if (!resumeModal.hidden) syncResumePreview();
         });
 
         // GSAP animations
