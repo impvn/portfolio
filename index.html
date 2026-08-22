@@ -377,10 +377,6 @@
         -webkit-backdrop-filter: blur(10px);
       }
 
-      .availability-short {
-        display: none;
-      }
-
       .hero h1 {
         font-family: var(--display);
         font-size: clamp(36px, 6vw, 64px);
@@ -1088,10 +1084,24 @@
       }
 
       .skill-proofs a {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
         font-size: 12px;
         font-weight: 600;
         color: var(--pine);
         border-bottom: 1px solid color-mix(in srgb, var(--pine) 40%, transparent);
+      }
+
+      .credential-arrow {
+        width: 13px;
+        height: 13px;
+        flex: 0 0 13px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
       }
 
       .credentials-grid {
@@ -2149,8 +2159,6 @@
           font-size: 8px;
         }
         .page-availability::before { width: 6px; height: 6px; }
-        .availability-full { display: none; }
-        .availability-short { display: inline; }
         .profile-card,
         .profile-card img { width: 148px; height: 148px; }
         .hero-ledger { margin-top: 36px; }
@@ -2175,12 +2183,16 @@
         .experience-header { padding: 18px; gap: 14px; }
         .experience-facts {
           display: grid;
-          grid-template-columns: 1.1fr 0.8fr 1.35fr;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          justify-items: center;
           gap: 8px;
           padding-top: 12px;
+          text-align: center;
         }
         .experience-fact {
-          align-items: flex-start;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
           gap: 5px;
           font-size: 9px;
           line-height: 1.35;
@@ -2292,9 +2304,8 @@
         &#9776;
       </button>
     </nav>
-    <div class="hero-status page-availability" role="status" aria-label="Open to full-time opportunities">
-      <span class="availability-full">Open to full-time opportunities</span>
-      <span class="availability-short">Open to work</span>
+    <div class="hero-status page-availability" role="status">
+      Open to work
     </div>
     <main id="main">
       <section class="hero container" id="hero">
@@ -2749,11 +2760,11 @@
         </div>
         <div class="skill-proofs rv">
           <strong>Credentials</strong>
-          <a href="https://leetcode.com/u/impvn/" target="_blank" rel="noopener">SQL Advanced &nearr;</a>
-          <a href="https://leetcode.com/u/impvn/" target="_blank" rel="noopener">Python &nearr;</a>
-          <a href="https://www.coursera.org/account/accomplishments/specialization/7LBU26H4P2JD" target="_blank" rel="noopener">Applied Data Science &nearr;</a>
-          <a href="https://www.coursera.org/account/accomplishments/verify/NJU8BPMLGY4L" target="_blank" rel="noopener">Tableau &nearr;</a>
-          <a href="https://www.udemy.com/certificate/UC-1afefee8-6617-4f1a-9e23-4ae146e4228f/" target="_blank" rel="noopener">Product Management &nearr;</a>
+          <a href="https://leetcode.com/u/impvn/" target="_blank" rel="noopener">SQL Advanced <svg class="credential-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M8 5h7v7"/></svg></a>
+          <a href="https://leetcode.com/u/impvn/" target="_blank" rel="noopener">Python <svg class="credential-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M8 5h7v7"/></svg></a>
+          <a href="https://www.coursera.org/account/accomplishments/specialization/7LBU26H4P2JD" target="_blank" rel="noopener">Applied Data Science <svg class="credential-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M8 5h7v7"/></svg></a>
+          <a href="https://www.coursera.org/account/accomplishments/verify/NJU8BPMLGY4L" target="_blank" rel="noopener">Tableau <svg class="credential-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M8 5h7v7"/></svg></a>
+          <a href="https://www.udemy.com/certificate/UC-1afefee8-6617-4f1a-9e23-4ae146e4228f/" target="_blank" rel="noopener">Product Management <svg class="credential-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M8 5h7v7"/></svg></a>
         </div>
       </section>
 
