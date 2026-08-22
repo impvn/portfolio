@@ -1648,6 +1648,14 @@
         color: var(--muted);
       }
 
+      .hero-focus-label {
+        color: var(--ink);
+        text-decoration-line: underline;
+        text-decoration-color: var(--brass);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+
       .hero-ledger {
         margin-top: clamp(40px, 5vw, 56px);
       }
@@ -2336,7 +2344,7 @@
               >
             </div>
             <p class="hero-proof-note rv">
-              Primary focus: Product Analytics &middot; Business Analytics &middot;
+              <span class="hero-focus-label">Primary focus</span>: Product Analytics &middot; Business Analytics &middot;
               Experimentation &middot; Automation
             </p>
           </div>
