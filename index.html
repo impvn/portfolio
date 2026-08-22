@@ -6,7 +6,7 @@
     <title>Pawan Gupta — Product &amp; Business Analyst</title>
     <meta
       name="description"
-      content="Pawan Gupta — Product &amp; Business Analyst specialising in experimentation, retention, forecasting and pricing."
+      content="Pawan Gupta is a Product &amp; Business Analytics professional with experience across Flipkart and Swiggy, focused on experimentation, retention, forecasting, pricing and automation."
     />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
@@ -19,10 +19,15 @@
     />
     <meta
       property="og:description"
-      content="Product &amp; Business Analyst specialising in experimentation, retention, forecasting and pricing."
+      content="Product and business analytics across experimentation, retention, forecasting, pricing and automation at Flipkart and Swiggy."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://impvn.github.io/portfolio/" />
+    <meta property="og:image" content="https://impvn.github.io/portfolio/og-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pawan Gupta — Product &amp; Business Analytics" />
+    <meta name="twitter:description" content="Experimentation, product thinking and automation translated into measurable business decisions." />
+    <meta name="twitter:image" content="https://impvn.github.io/portfolio/og-preview.png" />
     <link rel="canonical" href="https://impvn.github.io/portfolio/" />
     <script type="application/ld+json">
       {
@@ -30,6 +35,12 @@
         "@type": "Person",
         "name": "Pawan Gupta",
         "jobTitle": "Product & Business Analyst",
+        "url": "https://impvn.github.io/portfolio/",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Delhi Technological University"
+        },
+        "knowsAbout": ["Product Analytics", "Business Analytics", "Experimentation", "Forecasting", "Automation"],
         "sameAs": ["https://linkedin.com/in/impvn/", "https://github.com/impvn"]
       }
     </script>
@@ -1621,6 +1632,478 @@
         }
       }
 
+      /* Recruiter-first portfolio upgrade */
+      .hero h1 .hero-accent {
+        display: block;
+        color: var(--pine);
+      }
+
+      .hero-proof-note {
+        max-width: 680px;
+        margin: 18px 0 0;
+        font-family: var(--mono);
+        font-size: 11px;
+        line-height: 1.6;
+        letter-spacing: 0.035em;
+        color: var(--muted);
+      }
+
+      .case-studies-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .flagship-case {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        overflow: hidden;
+        transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      }
+
+      .flagship-case:hover {
+        transform: translateY(-3px);
+        border-color: color-mix(in srgb, var(--pine) 45%, var(--line));
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+      }
+
+      .case-topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 18px 20px 0;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .case-number {
+        color: var(--brass);
+      }
+
+      .case-main {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 18px 20px 20px;
+      }
+
+      .case-main h3 {
+        margin-bottom: 8px;
+        font-family: var(--display);
+        font-size: 25px;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+      }
+
+      .case-problem {
+        min-height: 68px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .case-result {
+        margin: 22px 0 18px;
+        padding: 16px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .case-result strong {
+        display: block;
+        font-family: var(--display);
+        font-size: 34px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        color: var(--pine);
+      }
+
+      .case-result span {
+        display: block;
+        margin-top: 6px;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .micro-chart {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .micro-row {
+        display: grid;
+        grid-template-columns: 64px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 9px;
+        font-family: var(--mono);
+        font-size: 9px;
+        color: var(--muted);
+      }
+
+      .micro-track {
+        height: 7px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: var(--paper);
+      }
+
+      .micro-fill {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--pine);
+      }
+
+      .micro-fill.baseline {
+        width: 72%;
+        background: var(--line);
+      }
+
+      .micro-fill.lift-4 { width: 86%; }
+      .micro-fill.lift-3 { width: 82%; }
+      .micro-fill.time-before { width: 100%; background: var(--brass); }
+      .micro-fill.time-after { width: 13%; }
+
+      .case-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: auto;
+      }
+
+      .case-tags span {
+        padding: 5px 8px;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        font-family: var(--mono);
+        font-size: 9px;
+        color: var(--muted);
+      }
+
+      .case-details {
+        border-top: 1px solid var(--line);
+      }
+
+      .case-details summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 20px;
+        cursor: pointer;
+        list-style: none;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 500;
+        color: var(--pine);
+      }
+
+      .case-details summary::-webkit-details-marker { display: none; }
+      .case-details summary::after { content: "+"; font-size: 16px; }
+      .case-details[open] summary::after { content: "−"; }
+
+      .case-story {
+        display: grid;
+        gap: 0;
+        padding: 0 20px 18px;
+      }
+
+      .story-step {
+        display: grid;
+        grid-template-columns: 78px minmax(0, 1fr);
+        gap: 12px;
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .story-step strong {
+        font-family: var(--mono);
+        font-size: 9px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--brass);
+      }
+
+      .story-step p {
+        font-size: 12px;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+
+      .featured-product {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(420px, 1.15fr);
+        gap: clamp(28px, 5vw, 56px);
+        align-items: center;
+        padding: clamp(28px, 5vw, 52px);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+      }
+
+      .featured-product h3 {
+        margin: 8px 0 12px;
+        font-family: var(--display);
+        font-size: clamp(30px, 4vw, 44px);
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .featured-product-copy > p {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .product-points {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 18px;
+        margin: 20px 0;
+        list-style: none;
+      }
+
+      .product-points li {
+        position: relative;
+        padding-left: 12px;
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--muted);
+      }
+
+      .product-points li::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--brass);
+      }
+
+      .architecture {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .architecture-step {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-height: 76px;
+        padding: 12px 8px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        text-align: center;
+        font-family: var(--mono);
+        font-size: 9px;
+        line-height: 1.4;
+        color: var(--ink);
+      }
+
+      .architecture-step:not(:nth-child(4n))::after {
+        content: "→";
+        position: absolute;
+        right: -10px;
+        z-index: 2;
+        color: var(--brass);
+      }
+
+      .secondary-projects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .compact-project {
+        padding: 22px;
+        border-top: 1px solid var(--line);
+      }
+
+      .experience-summary {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--line);
+        background: var(--paper);
+      }
+
+      .experience-stat strong {
+        display: block;
+        font-family: var(--display);
+        font-size: 22px;
+        line-height: 1;
+        color: var(--pine);
+      }
+
+      .experience-stat span {
+        display: block;
+        margin-top: 5px;
+        font-family: var(--mono);
+        font-size: 9px;
+        line-height: 1.4;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+      }
+
+      .experience-highlights {
+        padding: 22px 28px 26px;
+      }
+
+      .experience-highlights ul {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        list-style: none;
+      }
+
+      .experience-highlights li {
+        position: relative;
+        padding-top: 14px;
+        border-top: 2px solid var(--brass);
+        font-size: 13px;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+
+      .method-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--surface);
+      }
+
+      .method-step {
+        min-height: 180px;
+        padding: 22px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .method-step:nth-child(3n) { border-right: 0; }
+      .method-step:nth-last-child(-n + 3) { border-bottom: 0; }
+
+      .method-number {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--brass);
+      }
+
+      .method-step h3 {
+        margin: 28px 0 7px;
+        font-family: var(--display);
+        font-size: 22px;
+        line-height: 1.1;
+      }
+
+      .method-step p {
+        font-size: 13px;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--line);
+      }
+
+      .about-item {
+        padding: 24px;
+        background: var(--surface);
+      }
+
+      .about-item h3 {
+        margin-bottom: 8px;
+        font-family: var(--display);
+        font-size: 21px;
+      }
+
+      .about-item p {
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .current-focus {
+        margin-top: 18px;
+        padding: 15px 18px;
+        border-left: 3px solid var(--pine);
+        background: var(--pine-soft);
+        font-family: var(--mono);
+        font-size: 10px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .current-focus strong { color: var(--ink); }
+
+      a:focus-visible,
+      button:focus-visible,
+      summary:focus-visible {
+        outline: 3px solid color-mix(in srgb, var(--brass) 70%, transparent);
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 900px) {
+        .case-studies-grid { grid-template-columns: 1fr; }
+        .case-problem { min-height: 0; }
+        .featured-product { grid-template-columns: 1fr; }
+        .experience-highlights ul { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 640px) {
+        .hero h1 .hero-accent { display: inline; }
+        .hero-proof-note { font-size: 9px; }
+        .case-main h3 { font-size: 23px; }
+        .case-result strong { font-size: 30px; }
+        .featured-product { padding: 22px 18px; }
+        .architecture { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .architecture-step:not(:nth-child(4n))::after { content: none; }
+        .secondary-projects { grid-template-columns: 1fr; }
+        .product-points { grid-template-columns: 1fr; }
+        .experience-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 14px; }
+        .experience-stat strong { font-size: 18px; }
+        .experience-stat span { font-size: 8px; }
+        .experience-highlights { padding: 18px 20px 22px; }
+        .method-grid { grid-template-columns: 1fr 1fr; }
+        .method-step { min-height: 150px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .method-step:nth-child(3n) { border-right: 1px solid var(--line); }
+        .method-step:nth-child(2n) { border-right: 0; }
+        .method-step:nth-last-child(-n + 3) { border-bottom: 1px solid var(--line); }
+        .method-step:nth-last-child(-n + 2) { border-bottom: 0; }
+        .method-step h3 { margin-top: 18px; font-size: 19px; }
+        .about-grid { grid-template-columns: 1fr; }
+        .hero-buttons { grid-template-areas: "cases cases" "resume linkedin"; }
+        .hero-buttons .btn:nth-child(1) { grid-area: cases; background: var(--pine); border: 1px solid var(--pine); color: #fff; }
+        .hero-buttons .btn:nth-child(2) { grid-area: resume; background: transparent; border: 1px solid var(--line); color: var(--ink); }
+        .hero-buttons .btn:nth-child(3) { grid-area: linkedin; }
+      }
+
       @media print {
         nav,
         .scroll-progress,
@@ -1668,11 +2151,12 @@
     <nav id="nav">
       <a href="#" class="nav-brand">Pawan Gupta.</a>
       <div class="nav-links" id="navLinks">
-        <a href="#impact">Impact</a>
-        <a href="#experience">Experience</a>
+        <a href="#case-studies">Case Studies</a>
         <a href="#projects">Projects</a>
-        <a href="#toolkit">Toolkit</a>
-        <a href="#credentials">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#approach">Approach</a>
+        <a href="#toolkit">Capabilities</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a
           href="Pawan_Gupta_Resume.pdf"
@@ -1704,33 +2188,22 @@
         <div class="hero-layout">
           <div class="hero-copy">
             <div class="hero-status rv">
-              Product &amp; Business Analyst
+              Product &amp; Business Analytics
             </div>
             <h1 class="rv">
-              Experimentation, retention, forecasting and pricing.
+              Analytics that turns into
+              <span class="hero-accent">business decisions.</span>
             </h1>
             <p class="hero-sub rv">
-              Experience across Flipkart and Swiggy, combining product
-              analytics, business performance and automation to support
-              measurable decisions.
+              I use product, customer and operational data to diagnose problems,
+              design experiments and build decision systems across Flipkart and
+              Swiggy.
             </p>
             <div class="hero-buttons rv">
               <a
-                href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=pawangupta.bu@gmail.com&amp;su=Portfolio%20inquiry"
+                href="#case-studies"
                 class="btn btn-pine"
-                target="_blank"
-                rel="noopener"
-                ><svg
-                  class="gmail-icon"
-                  aria-hidden="true"
-                  viewBox="0 0 24 18"
-                >
-                  <path fill="#4285F4" d="M2 16V4l5 3.75V16H2Z" />
-                  <path fill="#34A853" d="M17 7.75 22 4v12h-5V7.75Z" />
-                  <path fill="#FBBC04" d="m2 4 5 3.75V5.2L2 1.5V4Z" />
-                  <path fill="#EA4335" d="M2 1.5 4.2 0 12 5.85 19.8 0 22 1.5 12 9 2 1.5Z" />
-                </svg>
-                Gmail</a
+                >Explore Case Studies</a
               >
               <a
                 href="Pawan_Gupta_Resume.pdf"
@@ -1766,95 +2239,181 @@
                 LinkedIn</a
               >
             </div>
+            <p class="hero-proof-note rv">
+              Primary focus: Product Analytics &middot; Business Analytics &middot;
+              Experimentation &middot; Automation
+            </p>
           </div>
           <figure class="profile-card rv">
             <img
               src="assets/profile.png"
               alt="Pawan Gupta"
-              width="1254"
-              height="1254"
+              width="640"
+              height="640"
+              fetchpriority="high"
             />
           </figure>
         </div>
         <div class="hero-ledger rv">
           <div class="ledger-cell">
-            <div class="ledger-number">2 Years</div>
-            <div class="ledger-label">Professional experience</div>
+            <div class="ledger-number">12M+</div>
+            <div class="ledger-label">Users analysed</div>
           </div>
           <div class="ledger-cell">
-            <div class="ledger-number">Flipkart &amp; Swiggy</div>
-            <div class="ledger-label">Companies</div>
+            <div class="ledger-number">20+</div>
+            <div class="ledger-label">Experiments analysed</div>
           </div>
           <div class="ledger-cell">
-            <div class="ledger-number">New Delhi</div>
-            <div class="ledger-label">Current location</div>
+            <div class="ledger-number">3%</div>
+            <div class="ledger-label">Higher category margin</div>
           </div>
           <div class="ledger-cell">
-            <div class="ledger-number">B.Tech &middot; DTU</div>
-            <div class="ledger-label">Qualification</div>
+            <div class="ledger-number">8+ hrs &rarr; 1 hr</div>
+            <div class="ledger-label">Daily PO workflow</div>
           </div>
         </div>
       </section>
 
-      <section class="container" id="impact">
-        <div class="section-label rv">Selected outcomes</div>
-        <div class="section-title rv">Evidence before adjectives.</div>
-        <div class="impact-grid">
-          <div class="impact-card rv">
-            <div class="impact-metric">3%</div>
-            <h3>Higher category margin</h3>
-            <p>
-              Built price-elasticity models and burn-to-GMV tracking to guide
-              discount reallocation, contributing to ~3% higher category margin.
-            </p>
+      <section class="container" id="case-studies">
+        <div class="section-label rv">Selected case studies</div>
+        <div class="section-title rv">How analysis became action.</div>
+        <div class="case-studies-grid">
+          <article class="flagship-case rv">
+            <div class="case-topline"><span>Swiggy &middot; Experimentation</span><span class="case-number">01</span></div>
+            <div class="case-main">
+              <h3>Buy Again</h3>
+              <p class="case-problem">Repeat users had clear reorder intent, but previously ordered items were not prominent enough in the storefront journey.</p>
+              <div class="case-result"><strong>4%</strong><span>Order conversion improvement</span></div>
+              <div class="micro-chart" aria-label="Illustrative normalized comparison showing a four percent lift over baseline">
+                <div class="micro-row"><span>Control</span><span class="micro-track"><span class="micro-fill baseline"></span></span><span>Baseline</span></div>
+                <div class="micro-row"><span>Treatment</span><span class="micro-track"><span class="micro-fill lift-4"></span></span><span>+4%</span></div>
+              </div>
+              <div class="case-tags"><span>SQL</span><span>A/B testing</span><span>Conversion</span></div>
+            </div>
+            <details class="case-details">
+              <summary>See decision path</summary>
+              <div class="case-story">
+                <div class="story-step"><strong>Signal</strong><p>Repeat-user behaviour showed a shorter path to products already purchased.</p></div>
+                <div class="story-step"><strong>Hypothesis</strong><p>Moving Buy Again above promotional content would reduce rediscovery friction.</p></div>
+                <div class="story-step"><strong>Method</strong><p>Analysed control and treatment performance across the ordering journey.</p></div>
+                <div class="story-step"><strong>Decision</strong><p>The measured lift supported the product placement decision.</p></div>
+              </div>
+            </details>
+          </article>
+
+          <article class="flagship-case rv">
+            <div class="case-topline"><span>Flipkart &middot; Pricing</span><span class="case-number">02</span></div>
+            <div class="case-main">
+              <h3>Discount Reallocation</h3>
+              <p class="case-problem">Promotional investment needed to balance category growth, target achievement and margin—not only top-line GMV.</p>
+              <div class="case-result"><strong>3%</strong><span>Higher category margin</span></div>
+              <div class="micro-chart" aria-label="Illustrative normalized comparison showing category margin improvement">
+                <div class="micro-row"><span>Previous</span><span class="micro-track"><span class="micro-fill baseline"></span></span><span>Baseline</span></div>
+                <div class="micro-row"><span>Reallocated</span><span class="micro-track"><span class="micro-fill lift-3"></span></span><span>+3%</span></div>
+              </div>
+              <div class="case-tags"><span>Elasticity</span><span>Forecasting</span><span>Margin</span></div>
+            </div>
+            <details class="case-details">
+              <summary>See decision path</summary>
+              <div class="case-story">
+                <div class="story-step"><strong>Problem</strong><p>Discounting decisions required a clearer view of incremental return and cash burn.</p></div>
+                <div class="story-step"><strong>Analysis</strong><p>Built price-elasticity views and tracked burn-to-GMV across category performance.</p></div>
+                <div class="story-step"><strong>Action</strong><p>Reallocated promotional investment toward more productive price points and SKUs.</p></div>
+                <div class="story-step"><strong>Impact</strong><p>Contributed to 3% higher category margin and 8% better target achievement.</p></div>
+              </div>
+            </details>
+          </article>
+
+          <article class="flagship-case rv">
+            <div class="case-topline"><span>Swiggy &middot; Automation</span><span class="case-number">03</span></div>
+            <div class="case-main">
+              <h3>Purchase Order Workflow</h3>
+              <p class="case-problem">Vendor PO generation, upload and reconciliation consumed more than a full working day of repetitive manual effort.</p>
+              <div class="case-result"><strong>7+ hrs</strong><span>Daily effort saved</span></div>
+              <div class="micro-chart" aria-label="Daily purchase order workflow reduced from more than eight hours to approximately one hour">
+                <div class="micro-row"><span>Manual</span><span class="micro-track"><span class="micro-fill time-before"></span></span><span>8+ hrs</span></div>
+                <div class="micro-row"><span>Automated</span><span class="micro-track"><span class="micro-fill time-after"></span></span><span>1 hr</span></div>
+              </div>
+              <div class="case-tags"><span>Python</span><span>Selenium</span><span>APIs</span></div>
+            </div>
+            <details class="case-details">
+              <summary>See system flow</summary>
+              <div class="case-story">
+                <div class="story-step"><strong>Map</strong><p>Documented generation, validation, upload and reconciliation steps.</p></div>
+                <div class="story-step"><strong>Build</strong><p>Combined structured processing, business rules, browser automation and APIs.</p></div>
+                <div class="story-step"><strong>Validate</strong><p>Kept review and reconciliation checks in the workflow before final outputs.</p></div>
+                <div class="story-step"><strong>Outcome</strong><p>Reduced daily effort from more than eight hours to approximately one hour.</p></div>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <section class="container" id="projects">
+        <div class="section-label rv">Built beyond the role</div>
+        <div class="section-title rv"><span class="title-underline">Independent products</span>, built from observed problems.</div>
+        <article class="featured-product rv">
+          <div class="featured-product-copy">
+            <div class="project-tag">Featured product &middot; Chrome extension &middot; AI</div>
+            <h3>Lead Mover</h3>
+            <p>AI-assisted hiring intelligence that turns noisy LinkedIn posts into structured, reviewable leads. It demonstrates product definition, system thinking and hands-on implementation—not a speculative concept.</p>
+            <ul class="product-points">
+              <li>Hiring-signal classification</li>
+              <li>Structured field extraction</li>
+              <li>Grounding validation</li>
+              <li>Fit scoring</li>
+              <li>Lead review and status tracking</li>
+              <li>History and exports</li>
+            </ul>
+            <a class="project-link" href="mailto:pawangupta.bu@gmail.com?subject=Lead%20Mover%20demo%20request">Private build &middot; request demo &nearr;</a>
           </div>
-          <div class="impact-card rv">
-            <div class="impact-metric">8%</div>
-            <h3>Better target achievement</h3>
-            <p>
-              Connected pricing decisions to cash burn, event performance and
-              category targets, contributing to ~8% better target achievement.
-            </p>
+          <div class="architecture" aria-label="Lead Mover system workflow">
+            <div class="architecture-step">LinkedIn posts</div>
+            <div class="architecture-step">Signal classifier</div>
+            <div class="architecture-step">LLM extraction</div>
+            <div class="architecture-step">Grounding check</div>
+            <div class="architecture-step">Fit scoring</div>
+            <div class="architecture-step">Lead builder</div>
+            <div class="architecture-step">Review workspace</div>
+            <div class="architecture-step">Export / outreach</div>
           </div>
-          <div class="impact-card rv">
-            <div class="impact-metric">4%</div>
-            <h3>Order conversion</h3>
-            <p>
-              Analysed the Buy Again rail experiment for repeat users across the
-              ordering journey, improving conversion by ~4%.
-            </p>
-          </div>
-          <div class="impact-card rv">
-            <div class="impact-metric">+5%</div>
-            <h3>D30 retention</h3>
-            <p>
-              Turned repeat-order behaviour into a targeted CRM trigger for
-              higher retention.
-            </p>
-          </div>
-          <div class="impact-card rv">
-            <div class="impact-metric">+13%</div>
-            <h3>Item availability</h3>
-            <p>
-              Isolated stock-out and assortment gaps using live menu data and
-              SQL.
-            </p>
-          </div>
-          <div class="impact-card rv">
-            <div class="impact-metric">Over 7 hours saved</div>
-            <h3>Daily PO effort</h3>
-            <p>
-              Automated generation, upload and reconciliation with Python,
-              Selenium and APIs, reducing daily effort from more than 8 hours to ~1 hour.
-            </p>
-          </div>
+        </article>
+        <div class="secondary-projects">
+          <article class="project-card compact-project rv">
+            <div class="project-tag">Marketplace &middot; Full stack</div>
+            <h4>PetApex</h4>
+            <p class="desc">Took an India-first, multi-sided pet-services marketplace from strategy and journey design to a working MVP with booking, provider operations and measurement foundations.</p>
+            <details class="case-study">
+              <summary>Read mini case study</summary>
+              <div class="case-study-body">
+                <div class="case-item"><span class="case-key">Product</span><p>Defined personas, journeys, PRDs, service configuration and provider workflows.</p></div>
+                <div class="case-item"><span class="case-key">Build</span><p>Implemented OTP authentication, INR checkout, provider KYC and an operations portal.</p></div>
+                <div class="case-item"><span class="case-key">Measure</span><p>Defined KPIs and events across acquisition, activation, retention and revenue.</p></div>
+              </div>
+            </details>
+            <div class="project-actions"><a class="project-link" href="mailto:pawangupta.bu@gmail.com?subject=PetApex%20demo%20request">Private build &middot; request demo &nearr;</a></div>
+          </article>
+          <article class="project-card compact-project rv">
+            <div class="project-tag">Product case study</div>
+            <h4>Spotify &mdash; SPOT</h4>
+            <p class="desc">A timestamp-based audio bookmarking and sharing concept shaped through app-review mining, user interviews and impact-effort prioritisation.</p>
+            <details class="case-study">
+              <summary>Read mini case study</summary>
+              <div class="case-study-body">
+                <div class="case-item"><span class="case-key">Research</span><p>Identified recurring listener friction through review mining and interviews.</p></div>
+                <div class="case-item"><span class="case-key">Concept</span><p>Designed timestamp-indexed audio bookmarks connected to the Player API.</p></div>
+                <div class="case-item"><span class="case-key">Measure</span><p>Proposed Spots per DAU, sharing rate and recommendation CTR.</p></div>
+              </div>
+            </details>
+            <div class="project-actions"><a class="project-link" href="https://pitch.com/v/spotify-product-deck-b8u3jn" target="_blank" rel="noopener">Open product deck &nearr;</a></div>
+          </article>
         </div>
       </section>
 
       <section class="container" id="experience">
         <div class="section-label rv">Where I have worked</div>
         <div class="section-title rv">
-          <span class="title-underline">Experience</span>, Measured by business impact.
+          <span class="title-underline">Experience</span>, measured by business impact.
         </div>
         <div class="experience-card rv">
           <div class="experience-header">
@@ -1910,33 +2469,12 @@
             </div>
             <div class="experience-details">
               <ul>
-                <li>
-                  Built the Large Appliances forecasting workflow and automated
-                  bottom-up vs. top-down reconciliation, moving monthly closure
-                  from mid-month to week one.
-                </li>
-                <li>
-                  Fixed Amazon&ndash;Flipkart SKU mapping in CIPI reports by
-                  clearing unmapped top sellers and stale listings.
-                </li>
-                <li>
-                  Built price-elasticity models and tracked return per cash burn
-                  and burn-to-GMV; discount reallocation contributed to ~3%
-                  higher category margin and ~8% better target achievement.
-                </li>
-                <li>
-                  Own monthly forecasting across 8 super-categories using
-                  YoY/CAGR trends and the event calendar to estimate GMV, ASP,
-                  traffic and inventory.
-                </li>
-                <li>
-                  Translate GMV targets into sourcing units, warehouse capacity
-                  with a 5% buffer, and channel-level traffic requirements.
-                </li>
-                <li>
-                  Maintain realistic and target scenarios, tracking both weekly
-                  against actuals to flag gaps early.
-                </li>
+                <li>Built the Large Appliances forecasting workflow and automated bottom-up vs. top-down reconciliation, moving monthly closure from mid-month to week one.</li>
+                <li>Fixed Amazon&ndash;Flipkart SKU mapping in CIPI reports by clearing unmapped top sellers and stale listings.</li>
+                <li>Built price-elasticity models and tracked return per cash burn and burn-to-GMV; discount reallocation contributed to ~3% higher category margin and ~8% better target achievement.</li>
+                <li>Own monthly forecasting across 8 super-categories using YoY/CAGR trends and the event calendar to estimate GMV, ASP, traffic and inventory.</li>
+                <li>Translate GMV targets into sourcing units, warehouse capacity with a 5% buffer, and channel-level traffic requirements.</li>
+                <li>Maintain realistic and target scenarios, tracking both weekly against actuals to flag gaps early.</li>
               </ul>
             </div>
           </div>
@@ -1951,7 +2489,7 @@
               />
               <div class="experience-info">
                 <div class="experience-company-name swiggy-name">Swiggy</div>
-                <div class="experience-role">Lead Data Analyst</div>
+                <div class="experience-role">Data Analyst</div>
               </div>
             </div>
             <div class="experience-facts" aria-label="Swiggy work details">
@@ -1991,129 +2529,35 @@
             </div>
             <div class="experience-details">
               <ul>
-                <li>
-                  Owned weekly SNACC performance across traffic, conversion,
-                  availability, demand and wastage; prepared RCAs and drove WBR
-                  and MOP reviews.
-                </li>
-                <li>
-                  Benchmarked SNACC against Bistro, Zepto and Swish, translating
-                  pricing, assortment and storefront gaps into actions.
-                </li>
-                <li>
-                  Analysed 20+ experiments; moving the Buy Again rail for repeat
-                  users improved order conversion by ~4%.
-                </li>
-                <li>
-                  Found D14 second-order behaviour as a strong LTV signal; the
-                  resulting Day-7 (D+7) CRM trigger improved D30 retention by ~5%.
-                </li>
-                <li>
-                  Improved item availability by 13% through live-menu stock-out
-                  and assortment analysis; sales-versus-forecast tracking also
-                  helped reduce food wastage by 8% MoM.
-                </li>
-                <li>
-                  Automated vendor PO generation, upload and reconciliation,
-                  reducing daily manual effort from more than 8 hours to ~1 hour.
-                </li>
+                <li>Owned weekly SNACC performance across traffic, conversion, availability, demand and wastage; prepared RCAs and drove WBR and MOP reviews.</li>
+                <li>Benchmarked SNACC against Bistro, Zepto and Swish, translating pricing, assortment and storefront gaps into actions.</li>
+                <li>Analysed 20+ experiments; moving the Buy Again rail for repeat users improved order conversion by ~4%.</li>
+                <li>Found D14 second-order behaviour as a strong LTV signal; the resulting Day-7 (D+7) CRM trigger improved D30 retention by ~5%.</li>
+                <li>Improved item availability by 13% through live-menu stock-out and assortment analysis; sales-versus-forecast tracking also helped reduce food wastage by 8% MoM.</li>
+                <li>Automated vendor PO generation, upload and reconciliation, reducing daily manual effort from more than 8 hours to ~1 hour.</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="container" id="projects">
-        <div class="section-label rv">Selected work</div>
-        <div class="section-title rv">
-          <span class="title-underline">Beyond Work</span>, Ideas I chose to build.
-        </div>
-        <div class="projects-grid">
-          <div class="project-card rv">
-            <div class="project-accent green"></div>
-            <div class="project-content">
-              <div class="project-tag">Marketplace &middot; Full stack</div>
-              <h4>PetApex &mdash; India-first Pet Services Marketplace</h4>
-              <div class="desc">
-                Took a multi-sided pet-services marketplace from strategy to a
-                working MVP.
-              </div>
-              <details class="case-study">
-                <summary>Read mini case study</summary>
-                <div class="case-study-body">
-                  <div class="case-item"><span class="case-key">Scope</span><p>Persona research, competitive analysis, journey mapping, PRDs and wireframes.</p></div>
-                  <div class="case-item"><span class="case-key">Experience</span><p>Discovery, service configuration, availability, bookings, staff assignment and provider operations.</p></div>
-                  <div class="case-item"><span class="case-key">Product decision</span><p>Replaced a fragmented booking flow with per-service slots, provider pricing and one payment creating multiple bookings.</p></div>
-                  <div class="case-item"><span class="case-key">Measurement</span><p>KPIs and event taxonomy across acquisition, activation, retention and revenue.</p></div>
-                  <div class="case-item"><span class="case-key">Build</span><p>OTP auth, INR pricing, UPI/card checkout, provider KYC and an operations portal on Next.js, Node.js and PostgreSQL.</p></div>
-                </div>
-              </details>
-              <div class="project-actions">
-                <a class="project-link" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=pawangupta.bu@gmail.com&amp;su=PetApex%20demo%20request" target="_blank" rel="noopener"
-                  >Private build &middot; request demo &nearr;</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="project-card rv">
-            <div class="project-accent blue"></div>
-            <div class="project-content">
-              <div class="project-tag">Chrome Extension &middot; AI</div>
-              <h4>Lead Mover</h4>
-              <div class="desc">
-                AI-assisted job intelligence workspace that turns noisy LinkedIn
-                hiring posts into structured, reviewable leads.
-              </div>
-              <details class="case-study">
-                <summary>Read mini case study</summary>
-                <div class="case-study-body">
-                  <div class="case-item"><span class="case-key">Problem</span><p>Valuable hiring signals are buried in noisy social posts.</p></div>
-                  <div class="case-item"><span class="case-key">Approach</span><p>Combined rule-based filters with LLM classification, extraction, grounding validation and fit scoring.</p></div>
-                  <div class="case-item"><span class="case-key">Product</span><p>A CRM-style workspace with search, filters, full post context, status tracking, history, exports and deterministic fallbacks.</p></div>
-                </div>
-              </details>
-              <div class="project-actions">
-                <a class="project-link" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=pawangupta.bu@gmail.com&amp;su=Lead%20Mover%20demo%20request" target="_blank" rel="noopener"
-                  >Private build &middot; request demo &nearr;</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="project-card rv">
-            <div class="project-accent green"></div>
-            <div class="project-content">
-              <div class="project-tag">Product Case Study</div>
-              <h4>Spotify &mdash; SPOT</h4>
-              <div class="desc">
-                Timestamp-based audio bookmarking and sharing concept, developed
-                from app-review mining and user interviews.
-              </div>
-              <details class="case-study">
-                <summary>Read mini case study</summary>
-                <div class="case-study-body">
-                  <div class="case-item"><span class="case-key">Research</span><p>Surfaced recurring listener frictions and prioritised solutions on an impact/effort matrix.</p></div>
-                  <div class="case-item"><span class="case-key">Concept</span><p>Timestamp-indexed audio bookmarks connected to the Player API.</p></div>
-                  <div class="case-item"><span class="case-key">Measurement</span><p>Spots per DAU, sharing rate and recommendation CTR, with a cohort-informed free-to-premium path.</p></div>
-                </div>
-              </details>
-              <div class="project-actions">
-                <a
-                  class="project-link"
-                  href="https://pitch.com/v/spotify-product-deck-b8u3jn"
-                  target="_blank"
-                  rel="noopener"
-                  >Open product deck &nearr;</a
-                >
-              </div>
-            </div>
-          </div>
+      <section class="container" id="approach">
+        <div class="section-label rv">How I solve problems</div>
+        <div class="section-title rv"><span class="title-underline">A decision system</span>, not a reporting checklist.</div>
+        <div class="method-grid">
+          <article class="method-step rv"><span class="method-number">01</span><h3>Frame</h3><p>Clarify the user or business decision before choosing the analysis.</p></article>
+          <article class="method-step rv"><span class="method-number">02</span><h3>Measure</h3><p>Define the primary outcome, supporting metrics and guardrails.</p></article>
+          <article class="method-step rv"><span class="method-number">03</span><h3>Diagnose</h3><p>Use segments, funnels, cohorts and root-cause analysis to isolate drivers.</p></article>
+          <article class="method-step rv"><span class="method-number">04</span><h3>Test</h3><p>Form a falsifiable hypothesis and evaluate the intervention where possible.</p></article>
+          <article class="method-step rv"><span class="method-number">05</span><h3>Ship</h3><p>Translate evidence into a product, pricing, operating or automation decision.</p></article>
+          <article class="method-step rv"><span class="method-number">06</span><h3>Measure again</h3><p>Track post-launch behaviour, guardrails and second-order effects.</p></article>
         </div>
       </section>
 
       <section class="container" id="toolkit">
         <div class="section-label rv">Capabilities &amp; toolkit</div>
         <div class="section-title rv">
-          <span class="title-underline">Skills Applied</span>, Outcomes delivered.
+          <span class="title-underline">Skills applied</span>, outcomes delivered.
         </div>
         <p class="skills-note rv">Every capability below is connected to professional experience or shipped project work&mdash;so you can see both what I use and what it has helped deliver.</p>
         <div class="toolkit-grid">
@@ -2200,11 +2644,18 @@
         </div>
       </section>
 
-      <section class="container" id="credentials">
-        <div class="section-label rv">Education</div>
+      <section class="container" id="about">
+        <div class="section-label rv">About</div>
         <div class="section-title rv">
-          <span class="title-underline">Engineering Roots</span>, Analytical mindset.
+          <span class="title-underline">Analyst, product thinker, builder.</span>
         </div>
+        <div class="about-grid rv">
+          <article class="about-item"><h3>Analyst</h3><p>I use behavioural and business data to understand what is happening, isolate why, and quantify the decision at stake.</p></article>
+          <article class="about-item"><h3>Product thinker</h3><p>I translate evidence into hypotheses, experiments, prioritisation and product or commercial action.</p></article>
+          <article class="about-item"><h3>Builder</h3><p>When repetitive workflows create friction, I automate the process or build a focused product around it.</p></article>
+        </div>
+        <div class="current-focus rv"><strong>Current focus</strong> &middot; Product Analytics &middot; Business Analytics &middot; Product Strategy &middot; Product Management</div>
+        <div class="section-label rv" style="margin-top: 32px">Education</div>
         <div class="credentials-grid">
           <div class="credentials-card rv">
             <div class="education-layout">
@@ -2248,16 +2699,14 @@
       <section id="contact">
         <div class="container">
           <div class="contact-card rv">
-            <h2>Looking for someone who connects data to product decisions?</h2>
+            <h2>Let&rsquo;s build something useful.</h2>
             <p class="sub">
-              Product and business analytics across experimentation, retention,
-              forecasting, pricing and automation.
+              If you are building data-intensive products, experimentation
+              systems or consumer-tech experiences, I would love to talk.
             </p>
             <div class="contact-links">
               <a
-                href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=pawangupta.bu@gmail.com&amp;su=Portfolio%20inquiry"
-                target="_blank"
-                rel="noopener"
+                href="mailto:pawangupta.bu@gmail.com?subject=Portfolio%20inquiry"
                 ><svg
                   class="gmail-icon"
                   aria-hidden="true"
