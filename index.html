@@ -2110,7 +2110,11 @@
         .case-result strong { font-size: 30px; }
         .featured-product { padding: 22px 18px; }
         .architecture { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .architecture-step:last-child { grid-column: 1 / -1; }
+        .architecture-step:last-child {
+          grid-column: 1 / -1;
+          width: calc(50% - 4px);
+          justify-self: center;
+        }
         .secondary-projects { grid-template-columns: 1fr; }
         .product-points { grid-template-columns: 1fr; }
         .experience-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 14px; }
