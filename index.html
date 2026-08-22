@@ -2102,6 +2102,83 @@
         .hero-buttons .btn:nth-child(1) { grid-area: cases; background: var(--pine); border: 1px solid var(--pine); color: #fff; }
         .hero-buttons .btn:nth-child(2) { grid-area: resume; background: transparent; border: 1px solid var(--line); color: var(--ink); }
         .hero-buttons .btn:nth-child(3) { grid-area: linkedin; }
+
+        :root { --section-gap: 48px; --title-gap: 20px; }
+        main > section.container:not(.hero) { margin-top: var(--section-gap); }
+        .hero { padding-top: 88px; }
+        .hero-layout { gap: 24px; }
+        .hero-status { margin-bottom: 16px; }
+        .hero h1 { margin-bottom: 16px; }
+        .hero-sub { margin-bottom: 24px; }
+        .hero-proof-note { margin-top: 14px; line-height: 1.55; }
+        .profile-card,
+        .profile-card img { width: 148px; height: 148px; }
+        .hero-ledger { margin-top: 24px; }
+        .ledger-cell { min-height: 88px; padding: 14px 12px; }
+
+        .case-topline { padding: 16px 16px 0; }
+        .case-main { padding: 15px 16px 18px; }
+        .case-problem { line-height: 1.55; }
+        .case-result { margin: 18px 0 16px; padding: 14px 0; }
+        .case-details summary { padding: 13px 16px; }
+        .case-story { padding: 0 16px 15px; }
+        .story-step { grid-template-columns: 68px minmax(0, 1fr); gap: 10px; }
+
+        .featured-product h3 { font-size: 32px; }
+        .featured-product-copy > p { font-size: 14px; line-height: 1.6; }
+        .product-points { margin: 16px 0; gap: 7px; }
+        .architecture { gap: 8px; }
+        .architecture-step { min-height: 62px; padding: 9px 6px; }
+        .compact-project { padding: 18px; }
+
+        .experience-card { margin-bottom: 18px; }
+        .experience-header { padding: 18px; gap: 14px; }
+        .experience-facts {
+          display: grid;
+          grid-template-columns: 1.1fr 0.8fr 1.35fr;
+          gap: 8px;
+          padding-top: 12px;
+        }
+        .experience-fact {
+          align-items: flex-start;
+          gap: 5px;
+          font-size: 9px;
+          line-height: 1.35;
+          white-space: normal;
+        }
+        .experience-fact svg { width: 12px; height: 12px; flex-basis: 12px; }
+        .experience-meta { padding: 12px 18px 14px; }
+        .metric-item { min-height: 60px; }
+        .experience-details { padding: 17px 18px 20px; }
+        .experience-details ul { gap: 10px; }
+        .experience-details li { padding-left: 14px; font-size: 13px; line-height: 1.5; }
+
+        .toolkit-grid { gap: 12px; }
+        .toolkit-card { padding: 18px; }
+        .skill-evidence { min-height: 0; margin-bottom: 12px; padding: 11px 12px; }
+        .skill-evidence strong { font-size: 16px; }
+        .toolkit-card ul {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0 12px;
+        }
+        .toolkit-card li { font-size: 11px; line-height: 1.4; }
+        .skill-proofs {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px 14px;
+          padding: 14px;
+        }
+        .skill-proofs strong { grid-column: 1 / -1; }
+        .skill-proofs a { min-height: 28px; font-size: 11px; }
+
+        .method-step { min-height: 140px; padding: 18px; }
+        .method-step p { font-size: 12px; line-height: 1.5; }
+        .about-item { padding: 20px; }
+        .current-focus { padding: 13px 14px; }
+        .credentials-card { padding: 18px; }
+        .contact-card { padding: 28px 18px; }
+        .contact-card .sub { margin-bottom: 24px; font-size: 14px; }
       }
 
       @media print {
