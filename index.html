@@ -219,23 +219,6 @@
         border-bottom-color: var(--brass);
       }
 
-      .nav-resume {
-        font-family: var(--mono);
-        font-size: 13px;
-        font-weight: 500;
-        padding: 6px 14px;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        transition:
-          border-color 0.2s,
-          color 0.2s;
-      }
-
-      .nav-resume:hover {
-        border-color: var(--brass);
-        color: var(--brass);
-      }
-
       .theme-toggle {
         background: none;
         border: 1px solid var(--line);
@@ -2291,13 +2274,6 @@
         <a href="#toolkit">Capabilities</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a
-          href="Pawan_Gupta_Resume.pdf"
-          class="nav-resume"
-          target="_blank"
-          rel="noopener"
-          >Resume</a
-        >
         <button
           class="theme-toggle"
           id="themeToggle"
@@ -2998,28 +2974,32 @@
           if (window.innerWidth > 860) closeMobileMenu();
         });
 
-        // Active nav link (16)
+        // Active nav link
         var secs = document.querySelectorAll("section[id]");
         var nls = document.querySelectorAll(".nav-links a[href^='#']");
-        var sectionObserver = new IntersectionObserver(
-          function (e) {
-            e.forEach(function (en) {
-              if (en.isIntersecting) {
-                var id = en.target.id;
-                nls.forEach(function (l) {
-                  l.classList.toggle(
-                    "active",
-                    l.getAttribute("href") === "#" + id,
-                  );
-                });
-              }
-            });
-          },
-          { rootMargin: "-20% 0px -70% 0px" },
-        );
-        secs.forEach(function (section) {
-          sectionObserver.observe(section);
-        });
+        function updateActiveNav() {
+          var probe = window.scrollY + nav.offsetHeight + window.innerHeight * 0.28;
+          var activeId = "";
+
+          secs.forEach(function (section) {
+            if (section.offsetTop <= probe) activeId = section.id;
+          });
+
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+            activeId = "contact";
+          }
+
+          nls.forEach(function (link) {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + activeId,
+            );
+          });
+        }
+
+        window.addEventListener("scroll", updateActiveNav, { passive: true });
+        window.addEventListener("resize", updateActiveNav);
+        updateActiveNav();
 
         // Close mobile nav on link click
         navLinks.querySelectorAll("a").forEach(function (l) {
