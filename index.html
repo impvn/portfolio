@@ -1222,6 +1222,84 @@
         background: transparent;
       }
 
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      .resume-modal[hidden] {
+        display: none;
+      }
+
+      .resume-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(4, 9, 13, 0.82);
+        backdrop-filter: blur(8px);
+      }
+
+      .resume-dialog {
+        width: min(980px, 100%);
+        height: min(88dvh, 900px);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+      }
+
+      .resume-modal-header,
+      .resume-modal-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 18px;
+      }
+
+      .resume-modal-header {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .resume-modal-header h2 {
+        font-family: var(--display);
+        font-size: 18px;
+        line-height: 1.2;
+        color: var(--ink);
+      }
+
+      .resume-modal-close {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 40px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .resume-frame {
+        width: 100%;
+        min-height: 0;
+        flex: 1;
+        border: 0;
+        background: #fff;
+      }
+
+      .resume-modal-footer {
+        justify-content: flex-end;
+        border-top: 1px solid var(--line);
+      }
+
       .footer {
         text-align: center;
         padding: 32px;
@@ -1611,6 +1689,24 @@
           font-size: 14px;
         }
 
+        .resume-modal {
+          padding: 10px;
+        }
+
+        .resume-dialog {
+          height: calc(100dvh - 20px);
+          border-radius: 10px;
+        }
+
+        .resume-modal-header,
+        .resume-modal-footer {
+          padding: 10px 12px;
+        }
+
+        .resume-modal-footer .btn {
+          width: 100%;
+        }
+
         .timeline {
           padding-left: 32px;
         }
@@ -1742,9 +1838,9 @@
               >
               <a
                 href="Pawan_Gupta_Resume.pdf"
+                id="viewResumeBtn"
                 class="btn btn-outline"
-                target="_blank"
-                rel="noopener"
+                aria-haspopup="dialog"
                 ><svg
                   class="eye-icon"
                   aria-hidden="true"
@@ -2302,12 +2398,75 @@
         </div>
       </section>
     </main>
+    <div
+      class="resume-modal"
+      id="resumeModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="resumeModalTitle"
+      hidden
+    >
+      <div class="resume-dialog">
+        <div class="resume-modal-header">
+          <h2 id="resumeModalTitle">Pawan Gupta &middot; Resume</h2>
+          <button
+            class="resume-modal-close"
+            id="resumeModalClose"
+            type="button"
+            aria-label="Close resume preview"
+          >
+            &#10005;
+          </button>
+        </div>
+        <iframe
+          class="resume-frame"
+          src="Pawan_Gupta_Resume.pdf#view=FitH"
+          title="Pawan Gupta resume preview"
+          loading="lazy"
+        ></iframe>
+        <div class="resume-modal-footer">
+          <a class="btn btn-pine" href="Pawan_Gupta_Resume.pdf" download>
+            &#8595; Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
     <footer class="footer">
       2026 Pawan Gupta &middot; Product &amp; Business Analyst &middot; New
       Delhi
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Resume preview modal
+        var viewResumeBtn = document.getElementById("viewResumeBtn");
+        var resumeModal = document.getElementById("resumeModal");
+        var resumeModalClose = document.getElementById("resumeModalClose");
+
+        function openResumeModal(event) {
+          if (event) event.preventDefault();
+          resumeModal.hidden = false;
+          document.body.classList.add("modal-open");
+          resumeModalClose.focus();
+        }
+
+        function closeResumeModal() {
+          if (resumeModal.hidden) return;
+          resumeModal.hidden = true;
+          document.body.classList.remove("modal-open");
+          viewResumeBtn.focus();
+        }
+
+        viewResumeBtn.addEventListener("click", openResumeModal);
+        resumeModalClose.addEventListener("click", closeResumeModal);
+        resumeModal.addEventListener("pointerdown", function (event) {
+          if (event.target === resumeModal) closeResumeModal();
+        });
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && !resumeModal.hidden) {
+            closeResumeModal();
+          }
+        });
+
         // GSAP animations
         function initGSAP() {
           if (typeof gsap === "undefined") return;
