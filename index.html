@@ -394,6 +394,10 @@
         -webkit-backdrop-filter: blur(10px);
       }
 
+      .availability-short {
+        display: none;
+      }
+
       .hero h1 {
         font-family: var(--display);
         font-size: clamp(36px, 6vw, 64px);
@@ -2154,7 +2158,16 @@
         .hero h1 { margin-bottom: 16px; }
         .hero-sub { margin-bottom: 24px; }
         .hero-proof-note { margin-top: 14px; padding: 13px 14px; line-height: 1.55; }
-        .page-availability { right: 12px; bottom: 12px; padding: 7px 9px; font-size: 9px; }
+        .page-availability {
+          right: 10px;
+          bottom: 10px;
+          gap: 5px;
+          padding: 5px 7px;
+          font-size: 8px;
+        }
+        .page-availability::before { width: 6px; height: 6px; }
+        .availability-full { display: none; }
+        .availability-short { display: inline; }
         .profile-card,
         .profile-card img { width: 148px; height: 148px; }
         .hero-ledger { margin-top: 36px; }
@@ -2303,8 +2316,9 @@
         &#9776;
       </button>
     </nav>
-    <div class="hero-status page-availability" role="status">
-      Open to full-time opportunities
+    <div class="hero-status page-availability" role="status" aria-label="Open to full-time opportunities">
+      <span class="availability-full">Open to full-time opportunities</span>
+      <span class="availability-short">Open to work</span>
     </div>
     <main id="main">
       <section class="hero container" id="hero">
