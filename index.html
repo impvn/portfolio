@@ -1405,8 +1405,8 @@
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           grid-template-areas:
-            "resume resume"
-            "email linkedin";
+            "email linkedin"
+            "resume resume";
           gap: 10px;
           margin-bottom: 0;
         }
@@ -1422,6 +1422,18 @@
         .hero-buttons .btn:nth-child(1) { grid-area: email; }
         .hero-buttons .btn:nth-child(2) { grid-area: resume; }
         .hero-buttons .btn:nth-child(3) { grid-area: linkedin; }
+
+        .hero-buttons .btn:nth-child(1) {
+          background: transparent;
+          border: 1px solid var(--line);
+          color: var(--ink);
+        }
+
+        .hero-buttons .btn:nth-child(2) {
+          background: var(--pine);
+          border: 1px solid var(--pine);
+          color: #fff;
+        }
 
         .section-title {
           font-size: clamp(28px, 8vw, 34px);
@@ -1737,7 +1749,7 @@
                   <path fill="#FBBC04" d="m2 4 5 3.75V5.2L2 1.5V4Z" />
                   <path fill="#EA4335" d="M2 1.5 4.2 0 12 5.85 19.8 0 22 1.5 12 9 2 1.5Z" />
                 </svg>
-                Email me</a
+                Mail</a
               >
               <a
                 href="Pawan_Gupta_Resume.pdf"
