@@ -1899,12 +1899,23 @@
         gap: 10px;
       }
 
+      .architecture-label {
+        grid-column: 1 / -1;
+        margin-bottom: 2px;
+        font-family: var(--mono);
+        font-size: 9px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--brass);
+      }
+
       .architecture-step {
         position: relative;
         display: grid;
         place-items: center;
         min-height: 76px;
-        padding: 12px 8px;
+        padding: 25px 8px 12px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--paper);
@@ -1915,11 +1926,15 @@
         color: var(--ink);
       }
 
-      .architecture-step:not(:nth-child(4n))::after {
-        content: "→";
+      .architecture-step::before {
+        content: attr(data-step);
         position: absolute;
-        right: -10px;
-        z-index: 2;
+        top: 7px;
+        left: 8px;
+        font-family: var(--mono);
+        font-size: 8px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
         color: var(--brass);
       }
 
@@ -2083,7 +2098,6 @@
         .case-result strong { font-size: 30px; }
         .featured-product { padding: 22px 18px; }
         .architecture { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .architecture-step:not(:nth-child(4n))::after { content: none; }
         .secondary-projects { grid-template-columns: 1fr; }
         .product-points { grid-template-columns: 1fr; }
         .experience-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 14px; }
@@ -2128,7 +2142,7 @@
         .featured-product-copy > p { font-size: 14px; line-height: 1.6; }
         .product-points { margin: 16px 0; gap: 7px; }
         .architecture { gap: 8px; }
-        .architecture-step { min-height: 62px; padding: 9px 6px; }
+        .architecture-step { min-height: 68px; padding: 24px 6px 9px; }
         .compact-project { padding: 18px; }
 
         .experience-card { margin-bottom: 18px; }
@@ -2445,14 +2459,15 @@
             <a class="project-link" href="mailto:pawangupta.bu@gmail.com?subject=Lead%20Mover%20demo%20request">Private build &middot; request demo &nearr;</a>
           </div>
           <div class="architecture" aria-label="Lead Mover system workflow">
-            <div class="architecture-step">LinkedIn posts</div>
-            <div class="architecture-step">Signal classifier</div>
-            <div class="architecture-step">LLM extraction</div>
-            <div class="architecture-step">Grounding check</div>
-            <div class="architecture-step">Fit scoring</div>
-            <div class="architecture-step">Lead builder</div>
-            <div class="architecture-step">Review workspace</div>
-            <div class="architecture-step">Export / outreach</div>
+            <div class="architecture-label">System flow &middot; follow 01&ndash;08</div>
+            <div class="architecture-step" data-step="01">LinkedIn posts</div>
+            <div class="architecture-step" data-step="02">Signal classifier</div>
+            <div class="architecture-step" data-step="03">LLM extraction</div>
+            <div class="architecture-step" data-step="04">Grounding check</div>
+            <div class="architecture-step" data-step="05">Fit scoring</div>
+            <div class="architecture-step" data-step="06">Lead builder</div>
+            <div class="architecture-step" data-step="07">Review workspace</div>
+            <div class="architecture-step" data-step="08">Export / outreach</div>
           </div>
         </article>
         <div class="secondary-projects">
