@@ -721,6 +721,10 @@
       }
 
       .experience-meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-content: start;
+        gap: 12px;
         padding: 28px;
         border-right: 1px solid var(--line);
         background: var(--paper);
@@ -732,7 +736,16 @@
         text-transform: uppercase;
         letter-spacing: 0.1em;
         color: var(--muted);
-        margin-bottom: 8px;
+        grid-column: 1 / -1;
+        margin-bottom: 2px;
+      }
+
+      .metric-item {
+        min-width: 0;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
       }
 
       .metric-value {
@@ -747,10 +760,6 @@
       .metric-caption {
         font-size: 14px;
         color: var(--muted);
-      }
-
-      .metric-caption + .metric-value {
-        margin-top: 20px;
       }
 
       .experience-details {
@@ -1488,26 +1497,37 @@
         .experience-meta {
           border-right: none;
           border-bottom: 1px solid var(--line);
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 4px 18px;
+          gap: 8px;
+          padding: 14px 20px 16px;
         }
 
         .experience-meta .metric-label {
           grid-column: 1 / -1;
-        }
-
-        .metric-caption + .metric-value {
-          margin-top: 0;
+          margin-bottom: 0;
+          font-size: 10px;
         }
 
         .metric-value {
-          font-size: 24px;
+          margin-bottom: 3px;
+          font-size: 21px;
+          line-height: 1;
+        }
+
+        .metric-item {
+          min-height: 64px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          padding: 9px 10px;
+          text-align: left;
         }
 
         .metric-caption {
-          font-size: 12px;
-          line-height: 1.45;
+          width: 100%;
+          font-size: 11px;
+          line-height: 1.3;
+          overflow-wrap: break-word;
         }
 
         .experience-details li {
@@ -1855,10 +1875,22 @@
           <div class="experience-body">
             <div class="experience-meta">
               <div class="metric-label">Key Metrics</div>
-              <div class="metric-value">8</div>
-              <div class="metric-caption">Super-categories forecasted</div>
-              <div class="metric-value">3%</div>
-              <div class="metric-caption">Higher category margin</div>
+              <div class="metric-item">
+                <div class="metric-value">8</div>
+                <div class="metric-caption">Super-categories forecasted</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-value">3%</div>
+                <div class="metric-caption">Higher category margin</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-value">8%</div>
+                <div class="metric-caption">Better target achievement</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-value">5%</div>
+                <div class="metric-caption">Warehouse capacity buffer</div>
+              </div>
             </div>
             <div class="experience-details">
               <ul>
@@ -1925,12 +1957,22 @@
           <div class="experience-body">
             <div class="experience-meta">
               <div class="metric-label">Key Metrics</div>
-              <div class="metric-value">20+</div>
-              <div class="metric-caption">
-                Experiments designed and analysed
+              <div class="metric-item">
+                <div class="metric-value">20+</div>
+                <div class="metric-caption">Experiments analysed</div>
               </div>
-              <div class="metric-value">+5%</div>
-              <div class="metric-caption">D30 retention improvement</div>
+              <div class="metric-item">
+                <div class="metric-value">5%</div>
+                <div class="metric-caption">D30 retention improvement</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-value">13%</div>
+                <div class="metric-caption">Item availability improvement</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-value">8%</div>
+                <div class="metric-caption">MoM food wastage reduction</div>
+              </div>
             </div>
             <div class="experience-details">
               <ul>
