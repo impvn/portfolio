@@ -1404,6 +1404,9 @@
         .hero-buttons {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-areas:
+            "resume resume"
+            "email linkedin";
           gap: 10px;
           margin-bottom: 0;
         }
@@ -1416,9 +1419,9 @@
           text-align: center;
         }
 
-        .hero-buttons .btn:first-child {
-          grid-column: 1 / -1;
-        }
+        .hero-buttons .btn:nth-child(1) { grid-area: email; }
+        .hero-buttons .btn:nth-child(2) { grid-area: resume; }
+        .hero-buttons .btn:nth-child(3) { grid-area: linkedin; }
 
         .section-title {
           font-size: clamp(28px, 8vw, 34px);
