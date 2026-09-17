@@ -501,120 +501,6 @@
         color: var(--muted);
       }
 
-      .impact-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-
-      .impact-card {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 24px;
-        transition:
-          transform 0.25s,
-          box-shadow 0.25s;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .impact-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      }
-
-      .impact-icon {
-        font-size: 24px;
-        line-height: 1;
-      }
-
-      .impact-metric {
-        font-family: var(--display);
-        font-size: clamp(26px, 3vw, 34px);
-        font-weight: 700;
-        letter-spacing: -0.04em;
-        line-height: 1;
-        color: var(--pine);
-      }
-
-      .impact-card h3 {
-        font-family: var(--display);
-        font-size: 18px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        line-height: 1.15;
-        color: var(--ink);
-      }
-
-      .impact-card p {
-        font-size: 14px;
-        line-height: 1.6;
-        color: var(--muted);
-      }
-
-      .timeline {
-        position: relative;
-        padding-left: 40px;
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 15px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: linear-gradient(180deg, var(--pine), var(--brass));
-        border-radius: 1px;
-      }
-
-      .timeline-step {
-        position: relative;
-        padding: 0 0 clamp(36px, 5vw, 52px);
-      }
-
-      .timeline-step:last-child {
-        padding-bottom: 0;
-      }
-
-      .timeline-dot {
-        position: absolute;
-        left: -40px;
-        top: 0;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: var(--surface);
-        border: 2px solid var(--pine);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--mono);
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--pine);
-        z-index: 1;
-      }
-
-      .timeline-step h4 {
-        font-family: var(--display);
-        font-size: 22px;
-        font-weight: 700;
-        letter-spacing: -0.03em;
-        line-height: 1.15;
-        color: var(--ink);
-        margin-bottom: 8px;
-      }
-
-      .timeline-step p {
-        font-size: 16px;
-        line-height: 1.65;
-        color: var(--muted);
-        max-width: 560px;
-      }
-
       .experience-card {
         border: 1px solid var(--line);
         border-radius: var(--radius);
@@ -805,12 +691,6 @@
         background: var(--brass);
       }
 
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-
       .project-card {
         border: 1px solid var(--line);
         border-radius: var(--radius);
@@ -824,23 +704,6 @@
       .project-card:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      }
-
-      .project-accent {
-        height: 3px;
-        width: 100%;
-      }
-
-      .project-accent.green {
-        background: var(--pine);
-      }
-
-      .project-accent.blue {
-        background: #2563eb;
-      }
-
-      .project-content {
-        padding: 24px 20px;
       }
 
       .project-tag {
@@ -1244,14 +1107,6 @@
           grid-template-columns: repeat(2, 1fr);
         }
 
-        .impact-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-
         .toolkit-grid {
           grid-template-columns: repeat(2, 1fr);
         }
@@ -1456,22 +1311,8 @@
           font-size: 10px;
         }
 
-        .impact-grid {
-          grid-template-columns: 1fr;
-          gap: 12px;
-        }
-
-        .impact-card {
-          padding: 20px;
-        }
-
         .toolkit-grid {
           grid-template-columns: 1fr;
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-          gap: 14px;
         }
 
         .credentials-grid {
@@ -1560,7 +1401,6 @@
           line-height: 1.55;
         }
 
-        .project-content,
         .toolkit-card,
         .credentials-card {
           padding: 20px;
@@ -1629,17 +1469,6 @@
           min-height: 46px;
           padding: 11px 12px;
           overflow-wrap: anywhere;
-        }
-
-        .timeline {
-          padding-left: 32px;
-        }
-
-        .timeline-dot {
-          left: -32px;
-          width: 26px;
-          height: 26px;
-          font-size: 11px;
         }
 
         .footer {
@@ -1984,54 +1813,6 @@
         border-top: 1px solid var(--line);
       }
 
-      .experience-summary {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-        padding: 18px 24px;
-        border-bottom: 1px solid var(--line);
-        background: var(--paper);
-      }
-
-      .experience-stat strong {
-        display: block;
-        font-family: var(--display);
-        font-size: 22px;
-        line-height: 1;
-        color: var(--pine);
-      }
-
-      .experience-stat span {
-        display: block;
-        margin-top: 5px;
-        font-family: var(--mono);
-        font-size: 9px;
-        line-height: 1.4;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: var(--muted);
-      }
-
-      .experience-highlights {
-        padding: 22px 28px 26px;
-      }
-
-      .experience-highlights ul {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-        list-style: none;
-      }
-
-      .experience-highlights li {
-        position: relative;
-        padding-top: 14px;
-        border-top: 2px solid var(--brass);
-        font-size: 13px;
-        line-height: 1.55;
-        color: var(--muted);
-      }
-
       .method-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2109,7 +1890,6 @@
         .case-studies-grid { grid-template-columns: 1fr; }
         .case-problem { min-height: 0; }
         .featured-product { grid-template-columns: 1fr; }
-        .experience-highlights ul { grid-template-columns: 1fr; }
       }
 
       @media (max-width: 640px) {
@@ -2126,10 +1906,6 @@
         }
         .secondary-projects { grid-template-columns: 1fr; }
         .product-points { grid-template-columns: 1fr; }
-        .experience-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 14px; }
-        .experience-stat strong { font-size: 18px; }
-        .experience-stat span { font-size: 8px; }
-        .experience-highlights { padding: 18px 20px 22px; }
         .method-grid { grid-template-columns: 1fr 1fr; }
         .method-step { min-height: 150px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
         .method-step:nth-child(3n) { border-right: 1px solid var(--line); }
@@ -2255,7 +2031,6 @@
         .experience-card,
         .project-card,
         .toolkit-card,
-        .impact-card,
         .credentials-card {
           break-inside: avoid;
           border-color: #ccc;
@@ -2378,7 +2153,7 @@
         </div>
         <div class="hero-ledger rv">
           <div class="ledger-cell">
-            <div class="ledger-number">2 Years</div>
+            <div class="ledger-number" id="experienceDuration">2 Years</div>
             <div class="ledger-label">Professional experience</div>
           </div>
           <div class="ledger-cell">
@@ -2886,6 +2661,26 @@
           window.setInterval(function () {
             heroStatus.classList.toggle("is-dim");
           }, 500);
+        }
+
+        // Dynamic work experience duration, counted from 16 Sept 2024
+        var expEl = document.getElementById("experienceDuration");
+        if (expEl) {
+          var expStart = new Date(2024, 8, 16);
+          var today = new Date();
+          var expMonths =
+            (today.getFullYear() - expStart.getFullYear()) * 12 +
+            (today.getMonth() - expStart.getMonth());
+          if (today.getDate() < expStart.getDate()) expMonths -= 1;
+          expMonths = Math.max(expMonths, 0);
+          var expYears = Math.floor(expMonths / 12);
+          var expRem = expMonths % 12;
+          var expParts = [];
+          if (expYears === 1) expParts.push("1 Year");
+          else if (expYears > 1) expParts.push(expYears + " Years");
+          if (expRem === 1) expParts.push("1 Mo");
+          else if (expRem > 1) expParts.push(expRem + " Mos");
+          expEl.textContent = expParts.join(" ") || "< 1 Mo";
         }
 
         // GSAP animations
