@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Validate site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check structure, assets, headings and budgets
+        run: node scripts/check-site.mjs
+
+      - name: Report page weight
+        run: |
+          echo "### Page weight" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo '| File | Size |' >> "$GITHUB_STEP_SUMMARY"
+          echo '| --- | --- |' >> "$GITHUB_STEP_SUMMARY"
+          for f in index.html Pawan_Gupta_Resume.pdf og-preview.png; do
+            printf '| `%s` | %s |\n' "$f" "$(du -h "$f" | cut -f1)" >> "$GITHUB_STEP_SUMMARY"
+          done
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          printf 'Total repo (excluding .git): **%s**\n' "$(du -sh --exclude=.git . | cut -f1)" >> "$GITHUB_STEP_SUMMARY"
+
+      # Handy for reviewing a PR before it is merged — download and open
+      # index.html locally. (Pages itself still deploys from `main`.)
+      - name: Upload preview artifact
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: |
+            index.html
+            assets
+            favicon.svg
+            apple-touch-icon.png
+            og-preview.png
+            Pawan_Gupta_Resume.pdf
+            robots.txt
+            sitemap.xml
+          retention-days: 14
