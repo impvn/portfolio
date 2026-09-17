@@ -14,6 +14,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#164438" />
     <meta
+      name="theme-color"
+      content="#0d1117"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
       property="og:title"
       content="Pawan Gupta - Product &amp; Business Analyst"
     />
@@ -50,14 +55,21 @@
       href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-      defer
-    ></script>
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      imagesrcset="assets/profile-220.webp 220w, assets/profile-440.webp 440w, assets/profile-660.webp 660w"
+      imagesizes="(max-width: 640px) 148px, (max-width: 860px) 164px, 220px"
+      fetchpriority="high"
+    />
+    <!--
+      Marks the document as JS-enabled before first paint so the scroll-reveal
+      styles can hide .rv elements without risking a blank page if JS is off.
+    -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
 
     <style>
       *,
@@ -76,7 +88,8 @@
         --line: #d3d8cf;
         --pine: #164438;
         --pine-soft: #eaf0eb;
-        --brass: #9a7b22;
+        /* 4.99:1 on --paper / 5.61:1 on --surface (was #9a7b22 at 3.47:1) */
+        --brass: #7d6218;
         --brass-soft: #f5f0d8;
         --radius: 12px;
         --maxw: 1120px;
@@ -132,11 +145,36 @@
           scroll-behavior: auto !important;
         }
 
-        .rv {
+        .rv,
+        .js .rv {
           opacity: 1 !important;
           transform: none !important;
         }
 
+        /* Keep the availability dot solid; JS also skips the blink interval. */
+        .hero-status::before {
+          opacity: 1 !important;
+          transform: none !important;
+          box-shadow: 0 0 8px rgba(53, 199, 89, 0.75) !important;
+        }
+      }
+
+      /*
+       * Scroll reveal, driven by IntersectionObserver instead of GSAP.
+       * The .js guard means visitors without JS (or with a broken script) get
+       * fully visible content rather than a blank page.
+       */
+      .js .rv {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+          transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+
+      .js .rv.is-visible {
+        opacity: 1;
+        transform: none;
       }
 
       .scroll-progress {
@@ -181,12 +219,6 @@
         -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--line);
         transition: border-color 0.3s;
-      }
-
-      nav.on {
-        transform: translateY(0);
-        opacity: 1;
-        border-bottom-color: var(--line);
       }
 
       .nav-brand {
@@ -355,6 +387,10 @@
         opacity: 1;
         box-shadow: 0 0 8px rgba(53, 199, 89, 0.75);
         transform: scale(1);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease,
+          box-shadow 0.55s ease;
       }
 
       .hero-status.is-dim::before {
@@ -716,7 +752,7 @@
         margin-bottom: 10px;
       }
 
-      .project-card h4 {
+      .project-card h3 {
         font-family: var(--display);
         font-size: 22px;
         font-weight: 700;
@@ -1009,7 +1045,7 @@
         min-width: 0;
       }
 
-      .credentials-card h3 {
+      .credentials-card h4 {
         font-family: var(--display);
         font-size: 18px;
         font-weight: 700;
@@ -1422,7 +1458,7 @@
           height: 82px;
         }
 
-        .credentials-card h3 {
+        .credentials-card h4 {
           font-size: 17px;
           margin-bottom: 10px;
         }
@@ -1445,7 +1481,7 @@
           align-items: center;
         }
 
-        .project-card h4 {
+        .project-card h3 {
           font-size: 20px;
         }
 
@@ -1630,15 +1666,20 @@
         background: var(--pine);
       }
 
+      /*
+       * Bar widths are proportional to the numbers they claim.
+       * Baseline = 92% of the track; each lift is scaled off that
+       * (+4% -> 95.7%, +3% -> 94.8%), so the shape never overstates the result.
+       */
       .micro-fill.baseline {
-        width: 72%;
+        width: 92%;
         background: var(--line);
       }
 
-      .micro-fill.lift-4 { width: 86%; }
-      .micro-fill.lift-3 { width: 82%; }
+      .micro-fill.lift-4 { width: 95.7%; }
+      .micro-fill.lift-3 { width: 94.8%; }
       .micro-fill.time-before { width: 100%; background: var(--brass); }
-      .micro-fill.time-after { width: 13%; }
+      .micro-fill.time-after { width: 12.5%; }
 
       .case-tags {
         display: flex;
@@ -2053,7 +2094,7 @@
     <div class="scroll-progress" id="scrollProgress"></div>
     <a href="#main" class="skip-link">Skip to content</a>
     <nav id="nav">
-      <a href="#" class="nav-brand">Pawan Gupta.</a>
+      <a href="#hero" class="nav-brand">Pawan Gupta.</a>
       <div class="nav-links" id="navLinks">
         <a href="#experience">Experience</a>
         <a href="#case-studies">Case Studies</a>
@@ -2080,9 +2121,9 @@
         &#9776;
       </button>
     </nav>
-    <div class="hero-status page-availability" role="status">
-      Open to work
-    </div>
+    <!-- Plain div, not role="status": the text never changes, and an ARIA live
+         region here just makes screen readers announce it unprompted. -->
+    <div class="hero-status page-availability">Open to work</div>
     <main id="main">
       <section class="hero container" id="hero">
         <div class="hero-layout">
@@ -2142,13 +2183,25 @@
             </p>
           </div>
           <figure class="profile-card rv">
-            <img
-              src="assets/profile.png"
-              alt="Pawan Gupta"
-              width="640"
-              height="640"
-              fetchpriority="high"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  assets/profile-220.webp 220w,
+                  assets/profile-440.webp 440w,
+                  assets/profile-660.webp 660w
+                "
+                sizes="(max-width: 640px) 148px, (max-width: 860px) 164px, 220px"
+              />
+              <img
+                src="assets/profile-440.jpg"
+                alt="Pawan Gupta"
+                width="220"
+                height="220"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </picture>
           </figure>
         </div>
         <div class="hero-ledger rv">
@@ -2173,9 +2226,9 @@
 
       <section class="container" id="experience">
         <div class="section-label rv">Where I have worked</div>
-        <div class="section-title rv">
+        <h2 class="section-title rv">
           <span class="title-underline">Experience</span>, measured by business impact.
-        </div>
+        </h2>
         <div class="experience-card rv">
           <div class="experience-header">
             <div class="experience-identity">
@@ -2183,11 +2236,14 @@
                 class="company-logo flipkart"
                 src="assets/brands/flipkart.svg"
                 alt="Flipkart logo"
+                width="52"
+                height="52"
+                decoding="async"
               />
               <div class="experience-info">
-                <div class="experience-company-name flipkart-name">
+                <h3 class="experience-company-name flipkart-name">
                   Flipkart
-                </div>
+                </h3>
                 <div class="experience-role">
                   Assistant Manager &mdash; Business Analyst
                 </div>
@@ -2247,9 +2303,12 @@
                 class="company-logo swiggy"
                 src="assets/brands/swiggy.svg"
                 alt="Swiggy logo"
+                width="52"
+                height="52"
+                decoding="async"
               />
               <div class="experience-info">
-                <div class="experience-company-name swiggy-name">Swiggy</div>
+                <h3 class="experience-company-name swiggy-name">Swiggy</h3>
                 <div class="experience-role">Data Analyst</div>
               </div>
             </div>
@@ -2304,7 +2363,7 @@
 
       <section class="container" id="case-studies">
         <div class="section-label rv">Selected case studies</div>
-        <div class="section-title rv">How analysis became action.</div>
+        <h2 class="section-title rv">How analysis became action.</h2>
         <div class="case-studies-grid">
           <article class="flagship-case rv">
             <div class="case-topline"><span>Swiggy &middot; Experimentation</span><span class="case-number">01</span></div>
@@ -2379,7 +2438,7 @@
 
       <section class="container" id="projects">
         <div class="section-label rv">Built beyond the role</div>
-        <div class="section-title rv"><span class="title-underline">Beyond work</span>: ideas I chose to build.</div>
+        <h2 class="section-title rv"><span class="title-underline">Beyond work</span>: ideas I chose to build.</h2>
         <article class="featured-product rv">
           <div class="featured-product-copy">
             <div class="project-tag">Featured product &middot; Chrome extension &middot; AI</div>
@@ -2412,7 +2471,7 @@
         <div class="secondary-projects">
           <article class="project-card compact-project rv">
             <div class="project-tag">Marketplace &middot; Full stack</div>
-            <h4>PetApex</h4>
+            <h3>PetApex</h3>
             <p class="desc">Took an India-first, multi-sided pet-services marketplace from strategy and journey design to a working MVP with booking, provider operations and measurement foundations.</p>
             <details class="case-study">
               <summary>Read mini case study</summary>
@@ -2426,7 +2485,7 @@
           </article>
           <article class="project-card compact-project rv">
             <div class="project-tag">Product case study</div>
-            <h4>Spotify &mdash; SPOT</h4>
+            <h3>Spotify &mdash; SPOT</h3>
             <p class="desc">A timestamp-based audio bookmarking and sharing concept shaped through app-review mining, user interviews and impact-effort prioritisation.</p>
             <details class="case-study">
               <summary>Read mini case study</summary>
@@ -2443,9 +2502,9 @@
 
       <section class="container" id="toolkit">
         <div class="section-label rv">Capabilities &amp; toolkit</div>
-        <div class="section-title rv">
+        <h2 class="section-title rv">
           <span class="title-underline">Skills applied</span>, outcomes delivered.
-        </div>
+        </h2>
         <p class="skills-note rv">Every capability below is connected to professional experience or shipped project work&mdash;so you can see both what I use and what it has helped deliver.</p>
         <div class="toolkit-grid">
           <div class="toolkit-card rv">
@@ -2533,7 +2592,7 @@
 
       <section class="container" id="approach">
         <div class="section-label rv">How I solve problems</div>
-        <div class="section-title rv"><span class="title-underline">A decision system</span>, not a reporting checklist.</div>
+        <h2 class="section-title rv"><span class="title-underline">A decision system</span>, not a reporting checklist.</h2>
         <div class="method-grid">
           <article class="method-step rv"><span class="method-number">01</span><h3>Frame</h3><p>Clarify the user or business decision before choosing the analysis.</p></article>
           <article class="method-step rv"><span class="method-number">02</span><h3>Measure</h3><p>Define the primary outcome, supporting metrics and guardrails.</p></article>
@@ -2546,32 +2605,44 @@
 
       <section class="container" id="about">
         <div class="section-label rv">About</div>
-        <div class="section-title rv">
+        <h2 class="section-title rv">
           <span class="title-underline">Analyst, product thinker, builder.</span>
-        </div>
+        </h2>
         <div class="about-grid rv">
           <article class="about-item"><h3>Analyst</h3><p>I use behavioural and business data to understand what is happening, isolate why, and quantify the decision at stake.</p></article>
           <article class="about-item"><h3>Product thinker</h3><p>I translate evidence into hypotheses, experiments, prioritisation and product or commercial action.</p></article>
           <article class="about-item"><h3>Builder</h3><p>When repetitive workflows create friction, I automate the process or build a focused product around it.</p></article>
         </div>
-        <div class="section-label rv" style="margin-top: 32px">Education</div>
+        <h3 class="section-label rv" style="margin-top: 32px">Education</h3>
         <div class="credentials-grid">
           <div class="credentials-card rv">
             <div class="education-layout">
               <div class="education-identity">
-                <img
-                  class="education-logo"
-                  src="assets/brands/dtu.png"
-                  alt="Delhi Technological University logo"
-                  width="106"
-                  height="106"
-                  loading="lazy"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="
+                      assets/brands/dtu-106.webp 106w,
+                      assets/brands/dtu-212.webp 212w,
+                      assets/brands/dtu-318.webp 318w
+                    "
+                    sizes="106px"
+                  />
+                  <img
+                    class="education-logo"
+                    src="assets/brands/dtu-212.jpg"
+                    alt="Delhi Technological University logo"
+                    width="106"
+                    height="106"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
                 <div class="education-content">
-                  <h3>
+                  <h4>
                     Delhi Technological University
                     <span class="experience-date">(formerly DCE)</span>
-                  </h3>
+                  </h4>
                   <div class="education-degree">Bachelor of Technology (B.Tech)</div>
                   <div class="education-field">Undergraduate programme &middot; Civil Engineering</div>
                 </div>
@@ -2651,16 +2722,22 @@
       </section>
     </main>
     <footer class="footer">
-      2026 Pawan Gupta &middot; Product &amp; Business Analyst &middot; New
-      Delhi
+      <span class="footer-year">2026</span> Pawan Gupta &middot; Product &amp;
+      Business Analyst &middot; New Delhi
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        var prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        // Pulsing availability dot. Skipped entirely for reduced-motion users,
+        // who otherwise get a blink that CSS media queries cannot stop.
         var heroStatus = document.querySelector(".hero-status");
-        if (heroStatus) {
+        if (heroStatus && !prefersReduced) {
           window.setInterval(function () {
             heroStatus.classList.toggle("is-dim");
-          }, 500);
+          }, 1100);
         }
 
         // Dynamic work experience duration, counted from 16 Sept 2024
@@ -2683,42 +2760,67 @@
           expEl.textContent = expParts.join(" ") || "< 1 Mo";
         }
 
-        // GSAP animations
-        function initGSAP() {
-          if (typeof gsap === "undefined") return;
-          gsap.registerPlugin(ScrollTrigger);
+        /*
+         * Scroll reveal via IntersectionObserver.
+         * Replaces GSAP + ScrollTrigger (~70 KB across two CDN requests) for
+         * what is a single opacity/translate fade. No third-party dependency.
+         */
+        function initReveal() {
+          var items = document.querySelectorAll(".rv");
 
-          // Check prefers-reduced-motion
-          var prefersReduced = window.matchMedia(
-            "(prefers-reduced-motion: reduce)",
-          ).matches;
-          if (prefersReduced) return;
+          // Reduced motion, or no IntersectionObserver: show everything now.
+          if (
+            prefersReduced ||
+            !("IntersectionObserver" in window)
+          ) {
+            items.forEach(function (el) {
+              el.classList.add("is-visible");
+            });
+            return;
+          }
 
-          gsap.utils.toArray(".rv").forEach(function (el) {
-            gsap.fromTo(
-              el,
-              { opacity: 0, y: 24 },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: "power2.out",
-                scrollTrigger: { trigger: el, start: "top 88%", once: true },
-              },
-            );
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              });
+            },
+            // Fires when the element's top passes 88% of the viewport height,
+            // matching the previous ScrollTrigger "top 88%" start.
+            { rootMargin: "0px 0px -12% 0px", threshold: 0 },
+          );
+
+          items.forEach(function (el) {
+            observer.observe(el);
           });
         }
 
-        // Scroll progress bar (17)
+        // Scroll progress bar, rAF-throttled and registered as passive so it
+        // never blocks scrolling on the main thread.
+        var progressEl = document.getElementById("scrollProgress");
+        var progressQueued = false;
+
+        function paintProgress() {
+          progressQueued = false;
+          var h = document.documentElement;
+          var scrollable = h.scrollHeight - h.clientHeight;
+          var pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+          progressEl.style.width = pct + "%";
+        }
+
         window.addEventListener(
           "scroll",
           function () {
-            var h = document.documentElement;
-            var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-            document.getElementById("scrollProgress").style.width = pct + "%";
+            if (progressQueued) return;
+            progressQueued = true;
+            window.requestAnimationFrame(paintProgress);
           },
-          true,
+          { passive: true },
         );
+
+        paintProgress();
 
         // Dark mode toggle
         var tb = document.getElementById("themeToggle");
@@ -2789,7 +2891,11 @@
           var activeId = "";
 
           secs.forEach(function (section) {
-            if (section.offsetTop <= probe) activeId = section.id;
+            // getBoundingClientRect + scrollY rather than offsetTop, which is
+            // relative to the nearest positioned ancestor and breaks silently
+            // if anything in the chain ever gets a position.
+            var top = section.getBoundingClientRect().top + window.scrollY;
+            if (top <= probe) activeId = section.id;
           });
 
           if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
@@ -2804,7 +2910,20 @@
           });
         }
 
-        window.addEventListener("scroll", updateActiveNav, { passive: true });
+        // Throttle with rAF; the handler reads layout on every call.
+        var navQueued = false;
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (navQueued) return;
+            navQueued = true;
+            window.requestAnimationFrame(function () {
+              navQueued = false;
+              updateActiveNav();
+            });
+          },
+          { passive: true },
+        );
         window.addEventListener("resize", updateActiveNav);
         updateActiveNav();
 
@@ -2814,8 +2933,17 @@
             closeMobileMenu();
           });
         });
-        document.querySelector(".nav-brand").addEventListener("click", closeMobileMenu);
-        initGSAP();
+
+        // Guarded: this used to be the one unguarded lookup in the file, and a
+        // throw here would have taken out initReveal() on the next line.
+        var navBrand = document.querySelector(".nav-brand");
+        if (navBrand) navBrand.addEventListener("click", closeMobileMenu);
+
+        // Keep the footer year from going stale.
+        var yearEl = document.querySelector(".footer-year");
+        if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+        initReveal();
       });
     </script>
   </body>
